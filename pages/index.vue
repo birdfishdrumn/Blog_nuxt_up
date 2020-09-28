@@ -40,7 +40,7 @@
                 <span :is="draftChip(work)" />
               </v-card-text>
 
-              <v-list-item three-line style="min-height: unset;">
+              <v-list-item three-line style="min-height: unset">
                 <v-list-item-subtitle>{{
                   work.fields.content
                 }}</v-list-item-subtitle>
@@ -56,9 +56,7 @@
                     outlined
                     class="ma-1 black"
                   >
-                    <v-icon left size="18" color="grey">
-                      mdi-label
-                    </v-icon>
+                    <v-icon left size="18" color="grey"> mdi-label </v-icon>
                     {{ tag.fields.name }}
                   </v-chip>
                 </template>
@@ -102,18 +100,19 @@ export default {
       length: 0,
       displayLists: [],
       cats: ["profile", "works", "blog", "contact"],
-      pageSize: 6
+      pageSize: 6,
     };
   },
+
   components: {
-    draftChip
+    draftChip,
   },
   computed: {
     ...mapState(["works"]), // 追記
     //    ...mapGetters(['setEyeCatch', 'draftChip'])         // 削除
     ...mapGetters(["setEyeCatch", "draftChip", "linkTo"]), // 追記
     categoryColor() {
-      return category => {
+      return (category) => {
         switch (category.fields.name) {
           case "スズカ":
             return "#C73A31";
@@ -125,9 +124,9 @@ export default {
             return "grey darken-3";
         }
       };
-    }
+    },
   },
-  mounted: function() {
+  mounted: function () {
     this.works;
     // 例えば１ぺーじに３つのカードが入るとしたら、記事が4この場合、4/3で１より大きいので、1ページ分は確保される。
     // 6記事の場合は２ページ分となる。
@@ -159,13 +158,13 @@ export default {
       const dd = new String(date.getDate()).padStart(2, "0");
       return `${yyyy}.${mm}.${dd}`;
     },
-    pageChange: function(pageNumber) {
+    pageChange: function (pageNumber) {
       this.displayLists = this.works.slice(
         this.pageSize * (pageNumber - 1),
         this.pageSize * pageNumber
       );
-    }
-  }
+    },
+  },
 };
 // asyncData() {
 //   return Promise.all([

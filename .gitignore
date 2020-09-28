@@ -88,5 +88,5 @@ sw.*
 
 # Vim swap files
 *.swp
-#api key
-.contentful.json
+# dotenv environment variables file
+.env
