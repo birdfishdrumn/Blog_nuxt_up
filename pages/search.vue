@@ -12,9 +12,7 @@
           />
         </v-col>
         <v-col cols="12" sm="2" md="4">
-          <v-btn color="primary" @click="getPosts">
-            検索する
-          </v-btn>
+          <v-btn color="primary" @click="getPosts"> 検索する </v-btn>
         </v-col>
         <v-col cols="12">
           <!-- 検索結果件数の表示 -->
@@ -38,7 +36,7 @@
                 <v-list-item
                   v-for="(work, i) in works"
                   :key="i"
-                  :to="$store.getters.linkTo('work', work)"
+                  :to="$store.getters.linkTo('works', work)"
                 >
                   <v-list-item-content>
                     <v-list-item-title>
@@ -50,12 +48,8 @@
               <template v-else>
                 <v-list-item class="justify-center">
                   <div class="text-center">
-                    <p>
-                      キーワードに一致する投稿がありません。
-                    </p>
-                    <v-icon>
-                      mdi-emoticon-cry-outline
-                    </v-icon>
+                    <p>キーワードに一致する投稿がありません。</p>
+                    <v-icon> mdi-emoticon-cry-outline </v-icon>
                   </div>
                 </v-list-item>
               </template>
@@ -76,14 +70,14 @@ export default {
     return {
       query: "",
       works: [],
-      loading: false
+      loading: false,
     };
   },
   // 検索欄が空白の時に動作しないようにするため。
   computed: {
     isRequired() {
       return !!this.query && !/^\s+$/.test(this.query);
-    }
+    },
   },
   // Nuxt.jsのthis.$routeを使ってURLに埋め込まれたクエリーを取得しています。クエリーとは下記のようなURLのq=の後の部分です。
   // ターゲットに変化があればこのhandler内の命令が実行されます。newValには変化があった後の値が入り、第二引数には変化前の古い値が入ります。つまりここには、ヘッダーの検索フォームから渡された検索キーワードが入っています。
@@ -93,9 +87,9 @@ export default {
         this.query = newVal;
         this.getPosts();
       },
-      immediate: true
+      immediate: true,
       // immediate: trueオプションを付けると描画前に監視を始めます。
-    }
+    },
   },
   methods: {
     async getPosts() {
@@ -104,7 +98,7 @@ export default {
         await client
           .getEntries({
             content_type: "work",
-            query: this.query
+            query: this.query,
           })
           .then(({ items }) => {
             (this.works = items), console.log(items);
@@ -112,7 +106,7 @@ export default {
           .catch(console.error);
         this.loading = false;
       }
-    }
-  }
+    },
+  },
 };
 </script>

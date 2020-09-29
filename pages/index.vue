@@ -64,7 +64,7 @@
               <v-card-actions>
                 <v-spacer />
                 <!-- linkToの引数はstoteの方で二つ取っている為、('xx',xx)というように分けてあげる必要がある。 -->
-                <v-btn text color="primary" :to="linkTo('work', work)"
+                <v-btn text color="primary" :to="linkTo('works', work)"
                   >この記事をみる</v-btn
                 >
               </v-card-actions>
@@ -166,26 +166,4 @@ export default {
     },
   },
 };
-// asyncData() {
-//   return Promise.all([
-//     client.getEntries({
-//       content_type: "work", // workタイプの記事データを全取得
-
-//       order: "-sys.createdAt", // 作成日時順に並べる
-//     }),
-//   ])
-//     .then(([works]) => {
-//       return {
-//         works: works.items, // 取得したデータを配列worksに入れる
-//       };
-//     })
-//     .catch(console.error);
-// },
-// computed: {
-//   linkTo: () => (obj) => {
-//     return { name: "work-slug", params: { slug: obj.fields.slug } };
-//   },
-//   ...mapGetters(["setEyeCatch", "draftChip"]),
-// },
-// };
 </script>

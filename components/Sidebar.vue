@@ -20,15 +20,15 @@
                   max-height="100"
                   class="white--text"
                   md="8"
-                  :to="linkTo('work', work)"
+                  :to="linkTo('works', work)"
                 >
                 </v-img>
 
                 <v-list-item
                   three-line
-                  style="min-height: unset;"
+                  style="min-height: unset"
                   md="8"
-                  :to="linkTo('work', work)"
+                  :to="linkTo('works', work)"
                 >
                   <v-list-item-subtitle>{{
                     work.fields.title
@@ -53,8 +53,8 @@ export default {
     ...mapGetters(["setEyeCatch", "linkTo"]),
     limitCount() {
       return this.works.slice(0, 6);
-    } // 追記
-  }
+    }, // 追記
+  },
 };
 </script>
 <style>

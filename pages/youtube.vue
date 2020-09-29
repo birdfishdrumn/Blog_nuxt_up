@@ -22,9 +22,7 @@
               outlined
               class="ma-1 black"
             >
-              <v-icon left size="18" color="grey">
-                mdi-label
-              </v-icon>
+              <v-icon left size="18" color="grey"> mdi-label </v-icon>
               {{ tag.fields.name }}
             </v-chip>
           </template>
@@ -51,58 +49,9 @@ export default {
   computed: {
     ...mapState(["tags"]), // 追記
     //    ...mapGetters(['setEyeCatch', 'draftChip'])         // 削除
-    ...mapGetters(["linkTo"]) // 追記
-  }
-  // methods: {
-  //   tableItems() {
-  //     const tags = [];
-
-  //     for (let i = 0; i < this.tags.length; i++) {
-  //       const tag = this.tags[i];
-  //       // タグに関連づいた記事の数はstoreにある、タグに関連する記事一覧から取得する。
-  //       tag.fields.postcount = this.$store.getters.associatePosts(tag).length;
-  //       tags.push(tag);
-
-  //       console.log(tag.fields.name);
-  //       msg = tag.fields.name;
-  //     }
-  //     // return tags.fields;
-  //   }
+    ...mapGetters(["linkTo"]), // 追記
+  },
 };
 
-// data() {
-//   return {
-//     page: 1,
-//     length: 0,
-//     displayLists: [],
-//     works: [],
-//     pageSize: 2,
-//   };
-// },
-// components: {
-//   draftChip,
-// },
-
-// asyncData() {
-//   return Promise.all([
-//     client.getEntries({
-//       content_type: "work", // workタイプの記事データを全取得
-
-//       order: "-sys.createdAt", // 作成日時順に並べる
-//     }),
-//   ])
-//     .then(([works]) => {
-//       return {
-//         works: works.items, // 取得したデータを配列worksに入れる
-//       };
-//     })
-//     .catch(console.error);
-// },
-// computed: {
-//   linkTo: () => (obj) => {
-//     return { name: "work-slug", params: { slug: obj.fields.slug } };
-//   },
-//   ...mapGetters(["setEyeCatch", "draftChip"]),
-// },
 // };
 </script>

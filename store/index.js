@@ -135,20 +135,6 @@ export const actions = {
       })
       .catch(console.error);
   },
-  async getCategories({
-    commit
-  }) {
-    await client
-      .getEntries({
-        content_type: "category",
-        order: "fields.sort"
-      })
-      .then(res => commit("setCategories", res.items))
-      .catch(console.error);
-  },
-  getQuery({
-    commit
-  }, query) {
-    commit('setQuery', query)
-  }
+
+
 };

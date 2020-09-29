@@ -40,7 +40,7 @@
                   <span :is="draftChip(work)" />
                 </v-card-text>
 
-                <v-list-item three-line style="min-height: unset;">
+                <v-list-item three-line style="min-height: unset">
                   <v-list-item-subtitle>{{
                     work.fields.content
                   }}</v-list-item-subtitle>
@@ -49,7 +49,7 @@
                 <v-card-actions>
                   <v-spacer />
                   <!-- linkToの引数はstoteの方で二つ取っている為、('xx',xx)というように分けてあげる必要がある。 -->
-                  <v-btn text color="primary" :to="linkTo('work', work)"
+                  <v-btn text color="primary" :to="linkTo('works', work)"
                     >この記事をみる</v-btn
                   >
                 </v-card-actions>
@@ -67,13 +67,13 @@ import { mapState, mapGetters } from "vuex"; // 追記
 import draftChip from "~/components/works/draftChip";
 export default {
   components: {
-    draftChip
+    draftChip,
   },
   async asyncData({ payload, store, params, error }) {
     const category =
       payload ||
       (await store.state.categories.find(
-        cat => cat.fields.slug === params.slug
+        (cat) => cat.fields.slug === params.slug
       ));
 
     if (category) {
@@ -90,7 +90,7 @@ export default {
     //    ...mapGetters(['setEyeCatch', 'draftChip'])         // 削除
     ...mapGetters(["setEyeCatch", "draftChip", "linkTo"]), // 追記
     categoryColor() {
-      return category => {
+      return (category) => {
         switch (category.fields.name) {
           case "スズカ":
             return "#C73A31";
@@ -105,9 +105,9 @@ export default {
     },
     addBreads() {
       return [
-        { icon: "mdi-tag-outline", text: "カテゴリー一覧", to: "/categories" }
+        { icon: "mdi-tag-outline", text: "カテゴリー一覧", to: "/categories" },
       ];
-    }
+    },
   },
 
   methods: {
@@ -117,7 +117,7 @@ export default {
       const mm = new String(date.getMonth() + 1).padStart(2, "0");
       const dd = new String(date.getDate()).padStart(2, "0");
       return `${yyyy}.${mm}.${dd}`;
-    }
-  }
+    },
+  },
 };
 </script>
