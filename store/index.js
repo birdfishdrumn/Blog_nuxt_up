@@ -135,6 +135,11 @@ export const actions = {
       })
       .catch(console.error);
   },
+  getQuery({
+    commit
+  }, query) {
+    commit('setQuery', query)
+  }
 
 
 };
