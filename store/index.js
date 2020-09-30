@@ -88,10 +88,10 @@ export const mutations = {
     state.works = payload;
   },
 
-  setCategories(state, payload) {
-    state.categories = payload;
-    console.log(state.categories);
-  },
+  // setCategories(state, payload) {
+  //   state.categories = payload;
+  //   console.log(state.categories);
+  // },
   setLinks(state, entries) {
     state.tags = [];
     state.categories = [];

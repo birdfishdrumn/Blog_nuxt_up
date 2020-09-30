@@ -36,9 +36,7 @@
       outlined
       class="ma-1 black"
     >
-      <v-icon left size="18" color="grey">
-        mdi-label
-      </v-icon>
+      <v-icon left size="18" color="grey"> mdi-label </v-icon>
       {{ tag.fields.name }}
     </v-chip>
     <client-only>
@@ -61,7 +59,7 @@ import { mapGetters } from "vuex";
 export default {
   components: {
     shareBtns,
-    followBtns
+    followBtns,
   },
   methods: {
     formatDate(iso) {
@@ -70,26 +68,34 @@ export default {
       const mm = new String(date.getMonth() + 1).padStart(2, "0");
       const dd = new String(date.getDate()).padStart(2, "0");
       return `${yyyy}.${mm}.${dd}`;
-    }
+    },
   },
   async asyncData({ payload, store, params, error }) {
-    const currentPost =
-      payload ||
-      (await store.state.works.find(work => work.fields.slug === params.slug));
+    const currentPost = await store.state.works.find(
+      (work) => work.fields.slug === params.slug
+    );
+    if (payload) {
+      return {
+        currentPost,
+        category: currentPost.fields.category, // 追記
+      };
+    }
     if (currentPost) {
       return {
         currentPost,
-        category: currentPost.fields.category // 追記
+        category: currentPost.fields.category, // 追記
       };
     } else {
       return error({ statusCode: 400 });
     }
   },
-
+  // mounted: function () {
+  //   console.log(payload);
+  // },
   computed: {
     ...mapGetters(["setEyeCatch", "linkTo"]),
     categoryColor() {
-      return category => {
+      return (category) => {
         switch (category.fields.name) {
           case "スズカ":
             return "#C73A31";
@@ -107,11 +113,11 @@ export default {
         {
           icon: "mdi-folder-outline",
           text: this.category.fields.name,
-          to: this.linkTo("categories", this.category)
-        }
+          to: this.linkTo("categories", this.category),
+        },
       ];
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
