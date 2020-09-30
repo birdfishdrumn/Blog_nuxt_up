@@ -18,6 +18,7 @@
         <v-icon aria-hidden="false" aria-label="search">mdi-magnify</v-icon>
       </v-btn>
       <v-dialog v-model="dialog" max-width="332">
+        <template #activator="{ on }"></template>
         <!-- <template #activator="{on}">
           <v-btn="on"></v-btn>
         </template>-->
@@ -25,7 +26,11 @@
           <v-card-title />
           <v-card-text>
             <v-form @submit.prevent="submit">
-              <v-text-field v-model="setQuery" placeholder="記事を検索する" autofocus />
+              <v-text-field
+                v-model="setQuery"
+                placeholder="記事を検索する"
+                autofocus
+              />
             </v-form>
           </v-card-text>
         </v-card>
