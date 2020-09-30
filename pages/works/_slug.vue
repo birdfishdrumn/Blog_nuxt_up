@@ -4,16 +4,10 @@
       <!-- パンくずリスト -->
       <breadcrumbs :add-items="addBreads" />
       <!-- パンくずリスト -->
-      {{ formatDate(currentPost.fields.date) }}
+      <v-icon>mdi-calendar-range</v-icon
+      >{{ formatDate(currentPost.fields.date) }}
       <h1 class="post-title font-bold">{{ currentPost.fields.title }}</h1>
-      <v-chip
-        small
-        dark
-        ml-0
-        :color="categoryColor(currentPost.fields.category)"
-      >
-        {{ currentPost.fields.category.fields.name }}</v-chip
-      >
+
       <v-img
         :src="setEyeCatch(currentPost).url"
         :alt="currentPost.fields.image.fields.title"
@@ -21,7 +15,16 @@
         width="700"
         height="400"
         class="mx-auto"
-      />
+      >
+        <v-chip
+          medium
+          dark
+          class="ml-2 mt-2"
+          :color="categoryColor(currentPost.fields.category)"
+        >
+          {{ currentPost.fields.category.fields.name }}</v-chip
+        >
+      </v-img>
 
       <div class="mt-20 mb-20">{{ currentPost.fields.content }}</div>
     </template>

@@ -23,22 +23,23 @@
                   <v-chip
                     small
                     dark
-                    ml-0
                     :color="categoryColor(work.fields.category)"
                     :to="linkTo('categories', work.fields.category)"
-                    class="font-weight-bold"
+                    class="category-chip font-weight-bold"
                   >
                     {{ work.fields.category.fields.name }}
                   </v-chip>
                 </v-card-text>
               </v-img>
-              <v-card-title class="align-end fill-height font-weight-bold">{{
-                work.fields.title
-              }}</v-card-title>
-              <v-card-text text color="white">
+              <v-card-text text color="white" class="pb-0">
+                <v-icon>mdi-calendar-range</v-icon>
                 {{ formatDate(work.fields.date) }}
                 <span :is="draftChip(work)" />
               </v-card-text>
+              <v-card-title
+                class="align-end fill-height pt-0 mt-0 font-weight-bold"
+                >{{ work.fields.title }}</v-card-title
+              >
 
               <v-list-item three-line style="min-height: unset">
                 <v-list-item-subtitle>{{

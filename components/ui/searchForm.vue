@@ -19,9 +19,7 @@
       </v-btn>
       <v-dialog v-model="dialog" max-width="332">
         <template #activator="{ on }"></template>
-        <!-- <template #activator="{on}">
-          <v-btn="on"></v-btn>
-        </template>-->
+
         <v-card>
           <v-card-title />
           <v-card-text>

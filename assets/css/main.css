@@ -7,3 +7,11 @@
 .page-leave-active {
   opacity: 0;
 }
+
+.v-responsive__sizer {
+  flex: none !important;
+}
+
+.v-card__text {
+  padding-bottom: 0px !important;
+}
