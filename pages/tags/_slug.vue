@@ -11,8 +11,11 @@
 <script>
 export default {
   asyncData({ payload, params, error, store, env }) {
-    const tag =
-      payload || store.state.tags.find(tag => tag.fields.slug === params.slug);
+    const tag = store.state.tags.find((tag) => tag.fields.slug === params.slug);
+    if (payload) {
+      const relatedPosts = store.getters.associatePosts(tag);
+      return { tag, relatedPosts };
+    }
     if (tag) {
       // 追記
       const relatedPosts = store.getters.associatePosts(tag);
@@ -24,7 +27,7 @@ export default {
   computed: {
     addBreads() {
       return [{ icon: "mdi-tag-outline", text: "タグ一覧", to: "/tags" }];
-    }
-  }
+    },
+  },
 };
 </script>

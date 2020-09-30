@@ -70,12 +70,12 @@ export default {
     draftChip,
   },
   async asyncData({ payload, store, params, error }) {
-    const category =
-      payload ||
-      (await store.state.categories.find(
-        (cat) => cat.fields.slug === params.slug
-      ));
-
+    const category = await store.state.categories.find(
+      (cat) => cat.fields.slug === params.slug
+    );
+    if (payload) {
+      return { category };
+    }
     if (category) {
       return { category };
     } else {
@@ -104,9 +104,7 @@ export default {
       };
     },
     addBreads() {
-      return [
-        { icon: "mdi-tag-outline", text: "カテゴリー一覧", to: "/categories" },
-      ];
+      return [{ icon: "mdi-tag-outline", text: "カテゴリー一覧" }];
     },
   },
 
