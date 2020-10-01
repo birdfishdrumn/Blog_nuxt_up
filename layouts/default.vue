@@ -95,4 +95,13 @@ main {
 button:focus {
   outline: none;
 }
+@media (max-width: 959px) {
+  .aside-content {
+    width: 100%;
+  }
+}
+
+/* .aside-content {
+  width: 40%;
+} */
 </style>

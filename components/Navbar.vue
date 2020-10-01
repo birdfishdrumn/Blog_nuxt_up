@@ -23,19 +23,24 @@
               aria-label="nav"
               @click.stop="drawer = !drawer"
             />
-            <nuxt-link to="/" class="my-site-title my-link-black">{{ siteName }}</nuxt-link>
+            <nuxt-link to="/" class="my-site-title my-link-black">{{
+              siteName
+            }}</nuxt-link>
             <v-spacer />
             <div data-app>
               <search-form />
             </div>
             <div>
-              <ul class="nav">
+              <ul class="nav-display">
                 <nuxt-link to="/profile">
                   <li>Profile</li>
                 </nuxt-link>
               </ul>
             </div>
-            <v-toolbar-items class="hidden-ipad-and-down" :style="{ height: `${barHeight}px` }">
+            <v-toolbar-items
+              class="hidden-ipad-and-down"
+              :style="{ height: `${barHeight}px` }"
+            >
               <v-btn
                 v-for="(cat, i) in categories"
                 :key="i"
@@ -70,7 +75,9 @@
         こんにちはん
         <v-card-text :class="hiddenClass">
           <v-btn block text @click.stop="drawer = false">
-            <v-icon aria-hidden="false" aria-label="close">mdi-chevron-left</v-icon>close
+            <v-icon aria-hidden="false" aria-label="close"
+              >mdi-chevron-left</v-icon
+            >close
           </v-btn>
         </v-card-text>
         <!-- <div class="my-drawer-content">
@@ -194,6 +201,9 @@ $px: 16px;
   @media (max-width: 959px) {
     .my-drawer-content {
       padding: 0 $px $py;
+    }
+    .nav-display {
+      display: none;
     }
     .my-main-content {
       max-width: (768px + $px * 2);

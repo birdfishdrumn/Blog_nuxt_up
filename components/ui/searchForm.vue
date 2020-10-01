@@ -28,6 +28,8 @@
                 v-model="setQuery"
                 placeholder="記事を検索する"
                 autofocus
+                search
+                type="search"
               />
             </v-form>
           </v-card-text>
@@ -81,7 +83,7 @@ export default {
     display: none;
   }
 }
-@media (max-width: 959px) {
+@media (max-width: 598px) {
   .hidden-xs-only {
     display: none;
   }

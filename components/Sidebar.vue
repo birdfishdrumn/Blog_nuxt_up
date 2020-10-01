@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container fluid>
+    <v-container fluid class="side">
       <h2 class="new-post">最新記事</h2>
       <v-row justify="center">
         <v-col cols="12" sm="11" md="10" xl="8">
@@ -63,5 +63,8 @@ export default {
   margin-left: 10px;
   border-left: black 5px solid;
   padding-left: 10px;
+}
+.side {
+  max-width: 100%;
 }
 </style>

@@ -31,7 +31,7 @@
                   </v-chip>
                 </v-card-text>
               </v-img>
-              <v-card-text text color="white" class="pb-0">
+              <v-card-text text color="white" class="date">
                 <v-icon>mdi-calendar-range</v-icon>
                 {{ formatDate(work.fields.date) }}
                 <span :is="draftChip(work)" />
@@ -168,3 +168,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.date {
+  padding-bottom: 0 !important;
+}
+</style>
