@@ -32,6 +32,6 @@ export default {
 </script>
 <style scoped>
 #footer {
-  background-color: darkgrey;
+  background-color: black;
 }
 </style>

@@ -9,12 +9,12 @@
         <nuxt />
       </main>
       <aside>
-        <div class="w-64 mt-24 relative">
+        <div class="w-64 w-64 xl:w-64 md:w-auto sm:w-auto mt-24">
           <div>
             <div
               class="bg-center bg-cover w-16 h-16 mr-2 rounded-full shadow photo"
             ></div>
-            <div>
+            <div class="md:px-10 sm:px-10">
               <h1 class="font-bold">Michi</h1>
               <p class="text-xs text-justify">
                 普段は江戸風鈴のデザインを行なっている、michiと言います。
@@ -52,7 +52,9 @@
               </button>
             </a>
           </div>
-          <div><Sidebar></Sidebar></div>
+          <div>
+            <Sidebar></Sidebar>
+          </div>
           <div><SidebarCat></SidebarCat></div>
         </div>
       </aside>
@@ -97,7 +99,7 @@ button:focus {
 }
 @media (max-width: 959px) {
   .aside-content {
-    width: 100%;
+    width: 10rem !important;
   }
 }
 

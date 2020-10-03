@@ -27,7 +27,6 @@ export default {
     ...mapState(["categories"]),
     //    ...mapGetters(['setEyeCatch', 'draftChip'])         // 削除
     ...mapGetters(["linkTo"]) // 追記
-
   }
 };
 </script>
@@ -35,12 +34,7 @@ export default {
 v-text {
   font-size: 1.2rem;
 }
-.new-post {
-  margin-top: 20px;
-  margin-left: 10px;
-  border-left: black 5px solid;
-  padding-left: 10px;
-}
+
 .category {
   border-bottom: solid 1px #eee;
 }

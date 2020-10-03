@@ -42,6 +42,6 @@ export default {
 </script>
 <style scoped>
 #footer {
-  background-color: darkgrey;
+  background: linear-gradient(-135deg, #e4a972, #9941d8);
 }
 </style>

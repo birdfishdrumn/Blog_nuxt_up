@@ -53,16 +53,32 @@ export default {
     ...mapGetters(["setEyeCatch", "linkTo"]),
     limitCount() {
       return this.works.slice(0, 6);
-    }, // 追記
-  },
+    } // 追記
+  }
 };
 </script>
-<style>
+<style lang="scss">
 .new-post {
+  text-align: center !important;
   margin-top: 20px;
-  margin-left: 10px;
-  border-left: black 5px solid;
-  padding-left: 10px;
+
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 1em;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -15px; /*線の上下位置*/
+    display: inline-block;
+    width: 60px; /*線の長さ*/
+    height: 5px; /*線の太さ*/
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%); /*位置調整*/
+    background: linear-gradient(-135deg, #e4a972, #9941d8); /*線の色*/
+    border-radius: 2px; /*線の丸み*/
+  }
 }
 .side {
   max-width: 100%;
